@@ -1,0 +1,48 @@
+{
+    "name": "antaresbr/laravel-picklist",
+    "description": "Laravel API for antaresbr/picklist composer package",
+    "homepage": "https://github.com/antaresbr/laravel-picklist",
+    "keywords": [
+        "php",
+        "laravel",
+        "picklist"
+    ],
+    "authors": [
+        {
+            "name": "Eduardo Guerra",
+            "email": "eduardo.antares@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7",
+        "antaresbr/laravel-http": "*",
+        "antaresbr/picklist": "*",
+        "antaresbr/stringhandler": "*"
+    },
+    "autoload": {
+        "files": [
+            "support/helpers.php"
+        ],
+        "psr-4": {
+            "Antares\\Picklist\\Api\\": "src/"
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^5",
+        "mockery/mockery": "^1.3"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Antares\\Picklist\\Api\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Antares\\Picklist\\Api\\Providers\\AclServiceProvider"
+            ]
+        }
+    }
+}
