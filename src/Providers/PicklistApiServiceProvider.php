@@ -28,6 +28,10 @@ class PicklistApiServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(ai_picklist_api_path('lang'), 'picklist_api');
 
         $this->loadRoutes();
+
+        if ($this->app->runningInConsole()) {
+            $this->publishResources();
+        }
     }
 
     protected function mergeConfigFile($name)
@@ -48,5 +52,16 @@ class PicklistApiServiceProvider extends ServiceProvider
         Route::group($attributes, function () {
             $this->loadRoutesFrom(ai_picklist_api_path('routes/api.php'));
         });
+    }
+
+    protected function publishResources()
+    {
+        $this->publishes([
+            ai_picklist_api_path('config/picklist_api.php') => config_path('picklist_api.php'),
+        ], 'picklist-api-config');
+
+        $this->publishes([
+            ai_picklist_api_path('lang') => resource_path('lang/vendor/picklist_api'),
+        ], 'picklist-api-lang');
     }
 }

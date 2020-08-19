@@ -23,4 +23,9 @@ Route::get('/alive', function (Request $request) {
     ]);
 });
 
-Route::get('/get/{ids}', 'PicklistApiController@get');
+$authApi = config('picklist_api.auth.api');
+if (!empty($authApi)) {
+    Route::middleware($authApi)->get('/get/{ids}', 'PicklistApiController@get');
+} else {
+    Route::get('/get/{ids}', 'PicklistApiController@get');
+}
