@@ -41,7 +41,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Antares\\Picklist\\Api\\Providers\\AclServiceProvider"
+                "Antares\\Picklist\\Api\\Providers\\PicklistApiServiceProvider"
             ]
         }
     }
