@@ -23,12 +23,6 @@ Route::get('/alive', function (Request $request) {
     ]);
 });
 
-if (!function_exists('apiRoutes_picklist')) {
-    function apiRoutes_picklist()
-    {
-        return Route::get('/get/{ids}', 'PicklistApiController@get');
-    }
-}
 $auth = config('picklist_api.auth.api') ?: config('auth.defaults.guard');
 
 if (!empty($auth)) {
