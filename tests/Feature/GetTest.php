@@ -1,12 +1,14 @@
 <?php
-
 namespace Antares\Picklist\Api\Tests\Feature;
 
 use Antares\Picklist\Api\Http\PicklistApiHttpErrors;
 use Antares\Picklist\Api\Tests\TestCase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class GetTest extends TestCase
 {
+    use WithoutMiddleware;
+
     /** @test */
     public function get_with_empty_id()
     {

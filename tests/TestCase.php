@@ -1,5 +1,4 @@
 <?php
-
 namespace Antares\Picklist\Api\Tests;
 
 use Antares\Picklist\Api\Providers\PicklistApiServiceProvider;

@@ -23,9 +23,18 @@ Route::get('/alive', function (Request $request) {
     ]);
 });
 
-$authApi = config('picklist_api.auth.api');
-if (!empty($authApi)) {
-    Route::middleware($authApi)->get('/get/{ids}', 'PicklistApiController@get');
+if (!function_exists('apiRoutes_picklist')) {
+    function apiRoutes_picklist()
+    {
+        return Route::get('/get/{ids}', 'PicklistApiController@get');
+    }
+}
+$auth = config('picklist_api.auth.api') ?: config('auth.defaults.guard');
+
+if (!empty($auth)) {
+    Route::middleware('auth:' . $auth)->group(function () {
+        Route::get('/get/{ids}', 'PicklistApiController@get');
+    });
 } else {
     Route::get('/get/{ids}', 'PicklistApiController@get');
 }
