@@ -5,7 +5,7 @@ namespace Antares\Picklist\Api\Http\Controllers;
 use Antares\Picklist\Api\Http\PicklistApiHttpErrors;
 use Antares\Picklist\Api\Http\PicklistApiJsonResponse;
 use Antares\Picklist\PicklistException;
-use Antares\Support\Str;
+use Antares\Foundation\Str;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
