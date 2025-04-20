@@ -1,2 +1,2 @@
 # laravel-picklist
-Laravel API for antaresbr/picklist composer package
+Laravel 8 API for antaresbr/picklist package

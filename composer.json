@@ -1,6 +1,6 @@
 {
     "name": "antaresbr/laravel-picklist",
-    "description": "Laravel API for antaresbr/picklist composer package",
+    "description": "Laravel API for antaresbr/picklist package",
     "homepage": "https://github.com/antaresbr/laravel-picklist",
     "keywords": [
         "php",
@@ -16,10 +16,11 @@
     ],
     "license": "MIT",
     "require": {
-        "php": ">=8",
+        "php": "^8",
         "antaresbr/foundation": "*",
-        "antaresbr/laravel-http": "*",
-        "antaresbr/picklist": "*"
+        "antaresbr/laravel-http": "^8",
+        "antaresbr/picklist": "*",
+        "laravel/framework": "^8"
     },
     "autoload": {
         "files": [
