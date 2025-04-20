@@ -1,2 +1,2 @@
 # laravel-picklist
-Laravel 10 API for antaresbr/picklist package
+Laravel 11 API for antaresbr/picklist package
