@@ -4,12 +4,13 @@ namespace Antares\Picklist\Api\Tests\Feature;
 use Antares\Picklist\Api\Http\PicklistApiHttpErrors;
 use Antares\Picklist\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
+use PHPUnit\Framework\Attributes\Test;
 
 class GetTest extends TestCase
 {
     use WithoutMiddleware;
 
-    /** @test */
+    #[Test]
     public function get_with_empty_id()
     {
         $response = $this->get(config('picklist_api.route.prefix.api') . '/get/_');
@@ -24,7 +25,7 @@ class GetTest extends TestCase
         $this->assertEquals(__(PicklistApiHttpErrors::MESSAGES[PicklistApiHttpErrors::NO_PICKLIST_SUPPLIED]), $json['message']);
     }
 
-    /** @test */
+    #[Test]
     public function get_with_not_found_id()
     {
         $response = $this->get(config('picklist_api.route.prefix.api') . '/get/dummy_id');
@@ -53,7 +54,7 @@ class GetTest extends TestCase
         $this->assertEquals(__(PicklistApiHttpErrors::MESSAGES[PicklistApiHttpErrors::PICKLIST_NOT_FOUND]), $json['data']['error']['dummy_id']['message']);
     }
 
-    /** @test */
+    #[Test]
     public function get_successful()
     {
         $response = $this->get(config('picklist_api.route.prefix.api') . '/get/fruits');
@@ -77,7 +78,7 @@ class GetTest extends TestCase
         $this->assertEmpty($json['data']['error']);
     }
 
-    /** @test */
+    #[Test]
     public function get_partially_successful()
     {
         $response = $this->get(config('picklist_api.route.prefix.api') . '/get/fruits||brands|_|other.fruits|dummy_id|other.cities.brasil.goias');
